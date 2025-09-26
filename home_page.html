@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe Aroma - Warm Landing Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf7f0;
+      color: #443122;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Container helper */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #fff6ea;
+      padding: 20px 0;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: #a47123;
+      letter-spacing: 4px;
+      font-family: 'Poppins', sans-serif;
+      cursor: default;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 25px;
+      font-weight: 600;
+      color: #775622;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a27110;
+    }
+    .order-btn {
+      background: #8e6f17;
+      color: #fff;
+      padding: 8px 22px;
+      border-radius: 6px;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgb(142 111 23 / 0.5);
+      transition: background 0.3s ease;
+    }
+    .order-btn:hover {
+      background: #6f550c;
+      box-shadow: 0 5px 14px rgb(111 85 12 / 0.7);
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+      box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 0.3);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      background: #a6761d;
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 4px 12px rgb(166 118 29 / 0.6);
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: #7a5a14;
+      box-shadow: 0 8px 22px rgb(122 90 20 / 0.8);
+    }
+
+    /* Featured section */
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px 0;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-text {
+      max-width: 450px;
+    }
+    .featured-text h2 {
+      font-size: 2.3rem;
+      color: #6e4d0c;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+    .featured-text p {
+      font-size: 1.05rem;
+      color: #7b5e0a;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .cta-alt-btn {
+      display: inline-block;
+      background: #c19f3f;
+      padding: 10px 30px;
+      border-radius: 28px;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgb(193 159 63 / 0.7);
+      transition: background 0.3s ease;
+    }
+    .cta-alt-btn:hover {
+      background: #8c7715;
+      box-shadow: 0 7px 22px rgb(140 119 21 / 0.8);
+    }
+    .featured-img {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+    }
+
+    /* Menu grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 0 10px 60px;
+    }
+    .menu-card {
+      background: #fffefa;
+      border-radius: 25px;
+      box-shadow: 0 3px 15px rgb(0 0 0 / 0.07);
+      padding: 18px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .menu-card:hover {
+      box-shadow: 0 9px 27px rgb(0 0 0 / 0.12);
+      transform: translateY(-8px);
+    }
+    .menu-card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 6px 19px rgb(161 117 27 / 0.5);
+    }
+    .menu-card h3 {
+      font-weight: 900;
+      color: #704d03;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .menu-card p {
+      font-weight: 400;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #947c38;
+      margin-bottom: 6px;
+    }
+    .menu-card .price {
+      font-weight: 600;
+      color: #a27a20;
+      font-size: 1rem;
+    }
+    .menu-card .action-btn {
+      margin-top: 14px;
+      display: inline-block;
+      background: #b08a1f;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 22px;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgb(176 138 31 / 0.7);
+      transition: background 0.3s ease;
+    }
+    .menu-card .action-btn:hover {
+      background: #7a6412;
+      box-shadow: 0 7px 22px rgb(122 100 18 / 0.85);
+    }
+
+    /* Footer */
+    footer {
+      background: #d1b46f;
+      padding: 25px 10px;
+      color: #6a4621;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 620px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .featured {
+        flex-direction: column;
+      }
+      .featured-img, .featured-text {
+        max-width: 100%;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+        padding: 0 5px 40px;
+      }
+      .menu-card img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">SARONE</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#story">Our Story</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Contact</a>
+        <a href="test.html" class="order-btn">Order Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text container">
+      <h1>Savor the Perfect Brew!</h1>
+      <p>Individual Experience. Signature Master Blend.</p>
+      <a href="#menu" class="cta-btn">Menu & Specials</a>
+    </div>
+  </section>
+<div id="cart-container" style="
+  position:fixed;top:25px;right:25px;z-index:99;
+  background:#fff6ea;padding:18px 28px;border-radius:16px;box-shadow:0 3px 18px rgb(0 0 0 / 0.12);
+  min-width:220px;">
+  <span style="font-weight:900;color:#a6761d;">🛒 Cart (<span id="cart-count">0</span>)</span>
+  <div id="cart-items" style="margin-top:12px;"></div>
+  <button id="checkout-btn" style="margin-top:14px;padding:8px 22px;border:none;border-radius:8px;
+    background:#a6761d;color:white;font-weight:700;cursor:pointer;">
+    Checkout
+  </button>
+</div>
+
+  <section class="featured container">
+    <div class="featured-text">
+      <h2>Why Choose Us?</h2>
+      <p>Our cafe blends tradition with modern comfort. Premium quality beans, expert baristas, and a cozy atmosphere await you.</p>
+      <a href="#story" class="cta-alt-btn">Visit Our Story</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1541447272088-1efa9fc9faf7?auto=format&fit=crop&w=600&q=70" alt="Cafe Art" class="featured-img" />
+  </section>
+
+  <section class="menu-grid container" id="menu">
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=70" alt="Espresso" />
+      <h3>Espresso</h3>
+      <p>Strong and bold shot to kickstart your day.</p>
+      <div class="price">₹80</div>
+      <a href="#order" class="action-btn">Order Now</a>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=300&q=70" alt="Latte" />
+      <h3>Latte</h3>
+      <p>Creamy froth layered over rich espresso for a smooth treat.</p>
+      <div class="price">₹120</div>
+      <a href="#order" class="action-btn">Order now</a>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1510626176961-4b2b01c09241?auto=format&fit=crop&w=300&q=70" alt="Cold Brew" />
+      <h3>Cold Brew</h3>
+      <p>Slow brewed for bold flavor and less acidity - perfect for hot days.</p>
+      <div class="price">₹100</div>
+      <a href="#order" class="action-btn">Order Now</a>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=70" alt="Coffee" />
+      <h3>Coffee</h3>
+      <p>Freshly brewed coffee from single-origin beans.</p>
+      <div class="price">₹85</div>
+      <a href="#order" class="action-btn">Order Now</a>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+    <script>
+const cart = [];
+function updateCartDisplay() {
+  const cartCount = document.getElementById('cart-count');
+  const cartItems = document.getElementById('cart-items');
+  cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  cartItems.innerHTML = cart.length
+    ? cart.map(item =>
+        `<div style="margin-bottom:8px;">
+          <span>${item.name}</span> × <span>${item.qty}</span> —
+          <span>₹${item.price * item.qty}</span>
+          <button onclick="removeFromCart('${item.name}')" style="margin-left:10px;">Remove</button>
+        </div>`).join('')
+    : '<span style="color:#947c38;">Cart is empty</span>';
+}
+function removeFromCart(name) {
+  const idx = cart.findIndex(c => c.name === name);
+  if (idx !== -1) {
+    cart.splice(idx,1);
+    updateCartDisplay();
+  }
+}
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const card = btn.closest('.menu-card');
+    const name = card.querySelector('h3').textContent;
+    const price = parseInt(card.querySelector('.price').textContent.replace(/\D/g, ''), 10);
+    let item = cart.find(c => c.name === name);
+    if (item) {
+      item.qty += 1;
+    } else {
+      cart.push({name, price, qty: 1});
+    }
+    updateCartDisplay();
+  });
+});
+document.getElementById('checkout-btn').addEventListener('click', function() {
+  alert(cart.length ? "Proceeding to checkout!" : "Cart is empty.");
+});
+updateCartDisplay();
+</script>
+
+  </section>
+
+  <footer>
+    &copy; 2025 Cafe Aroma. All rights reserved.
+  </footer>
+</body>
+</html>
