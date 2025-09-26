@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baristas - Freshly Roasted Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0e6ad4f.js" crossorigin="anonymous"></script>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffdf9;
+      color: #2d1e0f;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: #f9f5ef;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: #8b6b3f;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #8b5e2d;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #4b2e05;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a6761d;
+    }
+    .right-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .cart {
+      position: relative;
+      cursor: pointer;
+    }
+    .cart::after {
+      content: attr(data-items);
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #a6761d;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      padding-left: 80px;
+      color: white;
+    }
+    .hero-content {
+      background: rgba(0,0,0,0.45);
+      padding: 40px;
+      border-radius: 12px;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .hero-content button {
+      background: #a6761d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero-content button:hover {
+      background: #8b5e2d;
+    }
+
+    /* Services */
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px 0;
+      background: #fff8f0;
+      text-align: center;
+    }
+    .service {
+      font-size: 0.95rem;
+      color: #4a3a25;
+    }
+    .service i {
+      color: #a6761d;
+      margin-right: 8px;
+    }
+
+    /* Categories */
+    .section-title {
+      text-align: center;
+      margin: 50px 0 25px;
+      font-size: 1.8rem;
+      color: #4b2e05;
+    }
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0 40px;
+    }
+    .category-card {
+      position: relative;
+      width: 300px;
+      height: 180px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .category-card:hover img {
+      transform: scale(1.08);
+    }
+    .category-card .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Products */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 40px 80px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .product-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .price {
+      color: #a6761d;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+    .product-card button {
+      background: #a6761d;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .product-card button:hover {
+      background: #8b5e2d;
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f5ef;
+      text-align: center;
+      padding: 20px;
+      color: #4b2e05;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="left-header">
+      <i class="fa-solid fa-headset"></i> Customer Support: 123-456-7890
+    </div>
+    <div class="logo">BARISTAS</div>
+    <div class="right-header">
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Iced Mocha</a>
+        <a href="#">Espresso</a>
+        <a href="#">Cappuccino</a>
+        <a href="#">More</a>
+        <a href="#">Blogs</a>
+      </nav>
+      <div class="cart" data-items="0"><i class="fa-solid fa-cart-shopping"></i></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Freshly Roasted Coffee</h2>
+      <p>Delicious coffee, brewed perfectly for you.</p>
+      <button>Shop Now</button>
+    </div>
+  </section>
+
+  <div class="services">
+    <div class="service"><i class="fa-solid fa-truck-fast"></i> Free Shipping over $150</div>
+    <div class="service"><i class="fa-solid fa-hand-holding-dollar"></i> Cash on Delivery</div>
+    <div class="service"><i class="fa-solid fa-gift"></i> Special Gift Cards</div>
+    <div class="service"><i class="fa-solid fa-headset"></i> 24/7 Customer Service</div>
+  </div>
+
+  <h2 class="section-title">Top Categories</h2>
+  <div class="categories">
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80">
+      <div class="overlay">Caffe Mocha</div>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=600&q=80">
+      <div class="overlay">Espresso Americano</div>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=600&q=80">
+      <div class="overlay">Cappuccino</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Top Products</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80">
+      <h4>Irish Coffee</h4>
+      <div class="price">$98.00 <span class="old-price">$122.00</span></div>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80">
+      <h4>Calypso Coffee</h4>
+      <div class="price">$200.00</div>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1590080875830-d85bdb2efbd6?auto=format&fit=crop&w=400&q=80">
+      <h4>Australian Coffee</h4>
+      <div class="price">$122.00</div>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1613470207429-ef31d452d58a?auto=format&fit=crop&w=400&q=80">
+      <h4>Witch’s Coffee</h4>
+      <div class="price">$123.00</div>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 BARISTAS • Brewed with ☕ & ❤️
+  </footer>
+
+</body>
+</html>
