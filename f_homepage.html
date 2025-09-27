@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lé Vantage - Warm Landing Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf7f0;
+      color: #443122;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Container helper */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #ffaf45;
+      padding: 17px;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .nav-container {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 40px;
+      color: #a47123;
+      letter-spacing: 1px;
+      font-family: 'Brush Script MT', cursive;
+      cursor: default;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 50px;
+      font-weight: 600;
+      color: #775622;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a27110;
+    }
+
+    /* Hero section */
+   
+ 
+    .cta-btn {
+      background: #583a02;
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-size: 1.1rem;  
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 4px 12px rgb(166 118 29 / 0.6);
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: #d0a93d;
+      box-shadow: 0 8px 22px rgb(122 90 20 / 0.8);
+    }
+
+    /* Featured section */
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px 0;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-text {
+      max-width: 450px;
+    }
+    .featured-text h2 {
+      font-size: 2.3rem;
+      color: #6e4d0c;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+    .featured-text p {
+      font-size: 1.05rem;
+      color: #7b5e0a;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .cta-alt-btn {
+      display: inline-block;
+      background: #c19f3f;
+      padding: 10px 30px;
+      border-radius: 28px;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgb(193 159 63 / 0.7);
+      transition: background 0.3s ease;
+    }
+    .cta-alt-btn:hover {
+      background: #8c7715;
+      box-shadow: 0 7px 22px rgb(140 119 21 / 0.8);
+    }
+    .featured-img {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+    }
+    /* Footer */
+    footer {
+      background: #d1b46f;
+      padding: 25px 10px;
+      color: #6a4621;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    .villan {
+      background: url('https://img.freepik.com/premium-psd/cozy-cafe-with-large-windows_957244-31295.jpg?w=1480') center/cover no-repeat;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      padding-left: 80px;
+      color: white;
+    }
+    .villan-content {
+      background: rgba(0,0,0,0.60);
+      padding: 40px;
+      border-radius: 12px;
+      
+    }
+    .villan-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .villan-content p {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .villan-content button {
+      background: #a6761d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .villan-content button:hover {
+      background: #8b5e2d;
+    }
+    .element{
+        float:right;
+        margin-left: auto;
+    }
+
+  </style>
+</head>
+<body>  
+  <header>
+    <div class="container nav-container">
+      <img src="https://masterbundles.com/wp-content/uploads/2023/03/preview-143.jpg" width="60px" height="60px" style="border-radius: 60%; margin-right: 30px;">
+      <div class="logo" style="margin-right: 50px;">Lé Vantage Café</div>
+      <nav style="margin-left: 200px;">
+        <a href="f_homepage.html">Home</a>
+        <a href="f_menu_page.html">Menu</a>
+        <a href="f_contact.html">Contact</a>
+        <a href="f_feedback.html">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="villan">
+    <div class="villan-content container">
+      <h1>Locally-Owned Coffee Shop Serving Goodness!</h1>
+      <p>Bean To Brew Magic...</p>
+      <a href="f_menu_page.html" class="cta-btn">Menu & Specials</a>
+    </div>
+  </section>
+
+  <section class="featured container">
+    <div class="featured-text">
+      <h2>Why Choose Us?</h2>
+      <p>1. Quality of Food :- Emphasize fresh ingredients, authentic recipes, or chef expertise.</p>
+      <p>2. Unique Experience :- Highlight ambiance, service style, or cultural experience.</p>
+      <p>3. Customer Satisfaction :- Mention friendly staff, attention to detail, or customer-focused service.</p>
+      <p>4. Value for Money :- Talk about generous portions, fair pricing, or special offers.</p>
+      <a href="f_feedback.html" class="cta-alt-btn">Feedback</a>
+    </div>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/000/109/104/small_2x/vector-coffee-sleeve.jpg" height="400" width="100" alt="Cafe Art" class="featured-img" />
+  </section>
+
+  <section class="featured container">
+    <div class="featured-text">
+      <h2>About us</h2>
+      <p>Welcome to Lé Vantage Café, where flavor meets passion! At our core, we believe that food is more than just a meal—it’s an experience, a memory, and a way to bring people together. Every dish we serve is crafted with the freshest ingredients, authentic recipes, and a sprinkle of love from our talented chefs.
+        Our mission is simple: to provide a warm, welcoming environment where guests can enjoy delicious food, exceptional service, and a touch of creativity in every bite. Whether you’re here for a quick lunch, a cozy dinner, or a special celebration, we aim to make every visit unforgettable.
+        At Lé Vantage Café, we don’t just serve food—we create moments.</p>
+    </div>
+    <img src="https://www.cafecoffeeday.com/sites/default/files/Mobile-AboutUs.jpg" height="400" width="100" alt="Cafe Art" class="featured-img" />
+  </section>
+
+  <footer>
+    &copy; 2025 Cafe Lé Vantage. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lé Vantage - Menu Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf7f0;
+      color: #443122;
+      line-height: 1.6;
+    }
+    a {text-decoration: none; color: inherit;}
+
+    .container {  
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffaf45;
+      padding: 17px;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .nav-container {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 40px;
+      color: #a47123;
+      letter-spacing: 1px;
+      font-family: 'Brush Script MT', cursive;
+      cursor: default;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 50px;
+      font-weight: 600;
+      color: #775622;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: #a27110; }
+    
+    #cart-notification {
+      position: fixed;
+      top: 80px;
+      right: 30px;
+      background: #4caf50;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: fadein 0.3s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      position: relative;
+      background: url('https://c7.alamy.com/comp/2C9FNM8/cute-doodle-cartoon-coffee-shop-icons-vector-outline-hand-drawn-for-coffee-and-bakery-for-cafe-menu-including-supply-item-and-equipment-isolated-2C9FNM8.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+      box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 0.3);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 60px 10px;
+    }
+    .menu-card {
+      background: #fffefa;
+      border-radius: 25px;
+      box-shadow: 0 3px 15px rgb(0 0 0 / 0.07);
+      padding: 18px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 9px 27px rgb(0 0 0 / 0.12);
+    }
+    .menu-card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .menu-card h3 {
+      font-weight: 900;
+      color: #704d03;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .menu-card .price {
+      font-weight: 600;
+      color: #a27a20;
+      margin-bottom: 10px;
+    }
+    .menu-card .action-btn {
+      display: inline-block;
+      background: #b08a1f;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 22px;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgb(176 138 31 / 0.7);
+      transition: background 0.3s ease;
+      margin: 4px;
+    }
+    .menu-card .action-btn:hover {
+      background: #7a6412;
+    }
+
+    #cart-section {
+      background: #fff6ea;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    #cart-section h2 {
+      color: #a6761d;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    #cart-container {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 3px 18px rgb(0 0 0 / 0.12);
+      text-align: left;
+    }
+    #cart-items div { margin-bottom: 10px; }
+    
+    #checkout-btn {
+      margin-top: 14px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 8px;
+      background: #a6761d;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #d1b46f;
+      padding: 25px 10px;
+      color: #6a4621;
+      text-align: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <img src="https://masterbundles.com/wp-content/uploads/2023/03/preview-143.jpg" width="60px" height="60px" style="border-radius: 60%; margin-right: 30px;">
+      <div class="logo" style="margin-right: 50px;">Lé Vantage Café</div>
+      <nav style="margin-left: 200px;">
+        <a href="f_homepage.html">Home</a>
+        <a href="f_menu_page.html">Menu</a>
+        <a href="f_contact.html">Contact</a>
+        <a href="f_feedback.html">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="cart-notification">Added to cart ✅</div>
+
+  <section class="hero">
+    <div>
+      <h1 style="size: 150%;">Savor the Perfect Brew!</h1>
+      <p style="font-size: larger;"><strong>Individual Experience. Signature Master Blend.</strong></p>
+    </div>
+  </section><br>
+<h1 style="padding-left: 195px;">Drinks🍻</h1>
+  <section class="menu-grid container" id="menu">
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=70" alt="Espresso">
+      <h3>Espresso</h3>
+      <div class="price">₹120</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=300&q=70" alt="Latte">
+      <h3>Cafe Latte</h3>
+      <div class="price">₹150</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://lifemadesweeter.com/wp-content/uploads/Easy-Cold-Brew-Coffee-Recipe-Vegan-Dairy-Free-Paleo-Healthy.jpg" alt="Cold Brew">
+      <h3>Cold Brew</h3>
+      <div class="price">₹180</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+  </section>
+  <h1 style="padding-left: 195px;">Snacks🥪</h1>
+  <section class="menu-grid container" id="menu">
+    <div class="menu-card">
+      <img src="https://www.tasteofhome.com/wp-content/uploads/2025/04/Turkey-Club-Sandwich_EXPS_FT25_278726_EC_0408_5.jpg" alt="Espresso">
+      <h3>Club Sandwich</h3>
+      <div class="price">₹220</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://aartimadan.com/wp-content/uploads/2020/07/White-Sauce-Pasta.jpg" alt="Latte">
+      <h3>Chef's Special Pasta</h3>
+      <div class="price">₹290</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPitk5t8N1e14DeaFGAIfutkbvVmOkWMAH9w&s" alt="Cold Brew">
+      <h3>Italian Pizza</h3>
+      <div class="price">₹350</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+  </section>
+  <h1 style="padding-left: 195px;">Confectionery🍰</h1>
+  <section class="menu-grid container" id="menu">
+    <div class="menu-card">
+      <img src="https://static01.nyt.com/images/2024/12/05/multimedia/SS-Chocolate-Banana-Muffins-jfvl/SS-Chocolate-Banana-Muffins-jfvl-mediumSquareAt3X.jpg" alt="Muffins">
+      <h3>Muffins</h3>
+      <div class="price">₹60</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://5.imimg.com/data5/ANDROID/Default/2024/4/414741110/LM/CX/JU/217890837/product-jpeg-500x500.jpg" alt="Chocolate">
+      <h3>Handmade Chocolate</h3>
+      <div class="price">₹39</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.getrecipekit.com/v1608585894_13_vjwdhl.jpg?aspect_ratio=16:9&quality=90&" alt="Croissant">
+      <h3>Almond&Choco Croissant</h3>
+      <div class="price">₹350</div>
+      <a href="#" class="add-to-cart-btn action-btn">Add to Cart</a>
+    </div>
+  </section>
+  <!-- Menu Sections here (unchanged) -->
+  <!-- ... your Drinks, Snacks, Confectionery cards exactly as given ... -->
+
+  <section id="cart-section">
+    <h2>Your Cart 🛒</h2>
+    <div id="cart-container">
+      <div><strong>Total Items:</strong> <span id="cart-count">0</span></div>
+      <div id="cart-items" style="margin-top:12px;">Cart is empty</div>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Cafe Lé Vantage. All rights reserved.
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function updateCartDisplay() {
+      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cart-items');
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartItems.innerHTML = cart.length
+        ? cart.map(item =>
+            `<div>
+              <span>${item.name}</span> × <span>${item.qty}</span> — ₹${item.price * item.qty}
+              <button onclick="removeFromCart('${item.name}')">Remove</button>
+            </div>`
+          ).join('')
+        : 'Cart is empty';
+    }
+
+    function removeFromCart(name) {
+      const idx = cart.findIndex(c => c.name === name);
+      if (idx !== -1) {
+        cart.splice(idx, 1);
+        updateCartDisplay();
+      }
+    }
+
+    function showCartNotification(message = "Added to cart ✅") {
+      const notif = document.getElementById('cart-notification');
+      notif.textContent = message;
+      notif.style.display = 'block';
+      setTimeout(() => notif.style.display = 'none', 2000);
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = btn.closest('.menu-card');
+        const name = card.querySelector('h3').textContent;
+        const price = parseInt(card.querySelector('.price').textContent.replace(/\D/g, ''), 10);
+        let item = cart.find(c => c.name === name);
+        if (item) item.qty += 1;
+        else cart.push({ name, price, qty: 1 });
+        updateCartDisplay();
+        showCartNotification();
+      });
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      if (cart.length) {
+        localStorage.setItem('checkoutCart', JSON.stringify(cart));
+        window.location.href = 'checkout.html';
+      } else {
+        alert("Cart is empty.");
+      }
+    });
+
+    updateCartDisplay();
+  </script>
+</body>
+</html>
